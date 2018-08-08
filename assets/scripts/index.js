@@ -8,4 +8,8 @@
 
 $(() => {
   // your JS code goes here
+
+  $('.box').on('click', function (event) {
+    console.log('you clicked', event.target.id)
+  })
 })
