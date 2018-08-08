@@ -18,19 +18,7 @@ $(() => {
 // 3. check currentPlayer, if playerOne push 'X' to currentBoard, if playerTwo push'O'
 // 4. change player so the flow can start over again
 
-const gameBoard = function () {
-  let currentBoard = []
-
-}
-
-// check isWinner
-const isWinner = function (currentBoard) {
-  if (currentBoard === winningCombinations) {
-    return true
-  } else {
-    return false
-  }
-}
+const gameBoard = ['', '', '', '', '', '', '', '', '']
 
 // const winningCombinations = (currentBoard[0] === currentBoard[1] === currentBoard[2])
 // || (currentBoard[0] === currentBoard[1] === currentBoard[2])

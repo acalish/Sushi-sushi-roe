@@ -8,8 +8,20 @@
 
 $(() => {
   // your JS code goes here
-
+  const gameBoard = ['', '', '', '', '', '', '', '', '']
+  let currentPlayer = 'X'
   $('.box').on('click', function (event) {
     console.log('you clicked', event.target.id)
+    // replaces array index with X
+    gameBoard.splice(event.target.id, 1, currentPlayer)
+    console.log(gameBoard)
+    // changes players between X and O
+    if (currentPlayer === 'X') {
+      $(event.target).text('X')
+      currentPlayer = 'O'
+    } else {
+      $(event.target).text('O')
+      currentPlayer = 'X'
+    }
   })
 })
