@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Sushi Sushi Roe</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,62 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Welcome to my game!</h1>
+
+      <form id='sign-up'>
+        <fieldset>
+          <legend>Sign Up</legend>
+          <input type="email" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+          <button type="submit">Sign Up</button>
+        </fieldset>
+      </form>
+
+      <form id='sign-in'>
+        <fieldset>
+          <legend>Sign In</legend>
+          <input type="email" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <button type="submit">Sign In</button>
+        </fieldset>
+      </form>
+
+      <form id='change-password'>
+        <fieldset>
+          <legend>Change Password</legend>
+          <input type="password" name="passwords[old]" placeholder="Old Password">
+          <input type="password" name="passwords[new]" placeholder="New Password">
+          <button type="submit">Change Password</button>
+        </fieldset>
+      </form>
+
+      <form id='sign-out' class="border hidden">
+        <fieldset>
+          <legend>Sign Out</legend>
+          <button type="submit">Sign Out</button>
+        </fieldset>
+      </form>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 box" id="0">Box 0</div>
+          <div class="col-md-4 box" id="1">Box 1</div>
+          <div class="col-md-4 box" id="2">Box 2</div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 box" id="3">Box 3</div>
+          <div class="col-md-4 box" id="4">Box 4</div>
+          <div class="col-md-4 box" id="5">Box 5</div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 box" id="6">Box 6</div>
+          <div class="col-md-4 box" id="7">Box 7</div>
+          <div class="col-md-4 box" id="8">Box 8</div>
+        </div>
+      </div>
+
     </body>
 </html>
