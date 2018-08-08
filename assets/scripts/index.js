@@ -9,3 +9,5 @@
 $(() => {
   // your JS code goes here
 })
+
+const gameBoard = []
