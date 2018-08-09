@@ -67,7 +67,7 @@ $(() => {
     if (checkWinner() === true || checkDraw() === true) {
       endGame()
     }
-    console.log(checkWinner())
-    console.log(checkDraw())
+    // console.log(checkWinner())
+    // console.log(checkDraw())
   })
 })
