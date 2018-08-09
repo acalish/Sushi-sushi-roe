@@ -17,10 +17,6 @@ $(() => {
 // 2. check isOver, if yes, return draw, if no continue
 // 3. check currentPlayer, if playerOne push 'X' to currentBoard, if playerTwo push'O'
 // 4. change player so the flow can start over again
-const isOver = function () {
-  if (checkWinner() === true) {
-    return true
-  } else if (checkDraw() === true) {
-    return true
-  }
+const endGame = function () {
+  $('.box').off('click')
 }

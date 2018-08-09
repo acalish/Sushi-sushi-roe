@@ -43,21 +43,16 @@ $(() => {
       return false
     }
   }
-  // check if game is over
-  const isOver = function () {
-    if (checkWinner() === true) {
-      return true
-    } else if (checkDraw() === true) {
-      return true
-    } else {
-      return false
-    }
+  // turn off click when game is over
+  const endGame = function () {
+    $('.box').off('click')
   }
   //
   $('.box').on('click', function (event) {
     console.log('you clicked', event.target.id)
     // replaces array index with X
     gameBoard.splice(event.target.id, 1, currentPlayer)
+    $(event.target).off('click')
     console.log(gameBoard)
     // changes players between X and O
     if (currentPlayer === 'X') {
@@ -67,11 +62,12 @@ $(() => {
       $(event.target).text('O')
       currentPlayer = 'X'
     }
-    isOver()
-    console.log(isOver())
     checkWinner()
-    console.log(checkWinner())
     checkDraw()
+    if (checkWinner() === true || checkDraw() === true) {
+      endGame()
+    }
+    console.log(checkWinner())
     console.log(checkDraw())
   })
 })
