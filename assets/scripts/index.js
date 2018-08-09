@@ -9,7 +9,9 @@
 $(() => {
   // your JS code goes here
   const gameBoard = ['', '', '', '', '', '', '', '', '']
+  //
   let currentPlayer = 'X'
+  // chack for win scenarios
   const checkWinner = function () {
     if (gameBoard[0] === gameBoard[1] && gameBoard[0] === gameBoard[2] && gameBoard[0] !== '') {
       return true
@@ -31,6 +33,26 @@ $(() => {
       return false
     }
   }
+  // check for draw scenario
+  const checkDraw = function () {
+    if ((gameBoard[0] && gameBoard[1] && gameBoard[2] &&
+      gameBoard[3] && gameBoard[4] && gameBoard[5] &&
+      gameBoard[6] && gameBoard[7] && gameBoard[8] !== '') && checkWinner() === false) {
+      return true
+    } else {
+      return false
+    }
+  }
+  // check if game is over
+  const isOver = function () {
+    if (checkWinner() === true) {
+      return true
+    } else if (checkDraw() === true) {
+      return true
+    } else {
+      return false
+    }
+  }
   //
   $('.box').on('click', function (event) {
     console.log('you clicked', event.target.id)
@@ -45,7 +67,11 @@ $(() => {
       $(event.target).text('O')
       currentPlayer = 'X'
     }
+    isOver()
+    console.log(isOver())
     checkWinner()
     console.log(checkWinner())
+    checkDraw()
+    console.log(checkDraw())
   })
 })
