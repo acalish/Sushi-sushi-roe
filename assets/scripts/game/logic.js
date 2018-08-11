@@ -1,5 +1,5 @@
 'use strict'
-
+// in here I want to define all of my functions
 const gameBoard = ['', '', '', '', '', '', '', '', '']
 //
 let currentPlayer = 'X'
@@ -45,16 +45,15 @@ const isOver = function () {
 }
 // turn off click when game is over
 const endGame = function () {
-  $('.box').off('click')
-}
+  if (isOver() === true) {
+    return true
+  } else {
+    return false
+  }
+// $('.box').off('click')
+// }
 //
-$('.box').on('click', function (event) {
-  console.log('you clicked', event.target.id)
-  // replaces array index with X
-  gameBoard.splice(event.target.id, 1, currentPlayer)
-  $(event.target).off('click')
-  console.log(gameBoard)
-  // changes players between X and O
+const changePlayer = function () {
   if (currentPlayer === 'X') {
     $(event.target).text('X')
     currentPlayer = 'O'
@@ -62,11 +61,34 @@ $('.box').on('click', function (event) {
     $(event.target).text('O')
     currentPlayer = 'X'
   }
-  checkWinner()
-  checkDraw()
-  if (checkWinner() === true || checkDraw() === true) {
-    endGame()
+}
+
+module.exports = {
+    gameBoard,
+    checkWinner,
+    checkDraw,
+    isOver,
+    endGame,
+    changePlayer
   }
-  // console.log(checkWinner())
-  // console.log(checkDraw())
-})
+// $('.box').on('click', function (event) {
+//   console.log('you clicked', event.target.id)
+//   // replaces array index with X
+//   gameBoard.splice(event.target.id, 1, currentPlayer)
+//   $(event.target).off('click')
+//   console.log(gameBoard)
+//   // changes players between X and O
+//   if (currentPlayer === 'X') {
+//     $(event.target).text('X')
+//     currentPlayer = 'O'
+//   } else {
+//     $(event.target).text('O')
+//     currentPlayer = 'X'
+//   }
+// checkWinner()
+// checkDraw()
+// if (checkWinner() === true || checkDraw() === true) {
+//   endGame()
+// }
+// console.log(checkWinner())
+// console.log(checkDraw())
