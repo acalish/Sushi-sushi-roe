@@ -2,67 +2,47 @@
 const store = require('../store.js')
 
 const signUpSuccess = function () {
-  $('#message').text('Sign up success!')
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  $('#auth-message').text('Sign up successful, please sign in to play!')
   $('#sign-up input').val('')
 }
 const signUpFailure = function () {
-  $('#message').text('Sign up failed, please check that your passwords match.')
-  $('#message').removeClass()
-  $('#message').addClass('fail')
+  $('#auth-message').text('Sign up failed, please check that your passwords match.')
   $('#sign-up input').val('')
 }
 
 const signInSuccess = function (response) {
   console.log('Response is', response)
-  $('#message').text('Welcome back!')
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  $('#auth-message').text('Enjoy your game!')
   $('#sign-in input').val('')
-  $('#change-password').show()
-  $('#sign-out').show()
-  $('#make-example').show()
-  $('#get-examples').show()
-  $('#get-example').show()
-  $('#sign-up').hide()
-  $('#sign-in').hide()
+  // $('#game').removeClass('hidden')
+  // $('#game').show()
+  // $('#sign-in').hide()
+  // $('#sign-up').hide()
   store.user = response.user
-  console.log('store', store)
 }
 
 const signInFailure = function () {
-  $('#message').text('Sign in failed, check that your email and password are correct')
-  $('#message').removeClass()
-  $('#message').addClass('fail')
+  $('#auth-message').text('Sign in failed, check that your email and password are correct')
   $('#sign-in input').val('')
 }
 
 const changePasswordSuccess = function () {
-  $('#message').text('Password changed')
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  $('#auth-message').text('Password changed')
   $('#change-password input').val('')
 }
 
 const changePasswordFailure = function () {
-  $('#message').text('Password not changed')
-  $('#message').removeClass()
-  $('#message').addClass('fail')
+  $('#auth-message').text('Password not changed')
   $('#change-password input').val('')
 }
 
 const signOutSuccess = function () {
-  $('#message').text('Sign out successful')
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  $('#auth-message').text('Sign out successful')
   $('#sign-out input').val('')
 }
-
+// not really possible
 const signOutFailure = function () {
-  $('#message').text('Not possible')
-  $('#message').removeClass()
-  $('#message').addClass('fail')
+  $('#auth-message').text('Not possible')
   $('#sign-out input').val('')
 }
 
