@@ -4,7 +4,16 @@ const gameLogic = require('./logic.js')
 const api = require('./api.js')
 const ui = require('./ui.js')
 
+const onUpdateBoard = function (event) {
+  event.preventDefault()
+  // const data = getFormFields(event.target)
+  // api.signIn(data)
+    .then(ui.updateBoardSuccess)
+    .catch(ui.updateBoardFailure)
+}
+
 const addHandlers = function () {
+  $('#gameBoard-message').on('click', onUpdateBoard)
 // add handlers here
   // $('.box').on('click', function (event) {
   //   console.log('you clicked', event.target.id)

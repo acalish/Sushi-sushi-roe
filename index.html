@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Sushi Sushi Roe</title>
+      <title>Three Makes a Sushi Roe</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,7 +12,7 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Sushi Sushi Roe!</h1>
+      <h1>Three Makes a Sushi Roe</h1>
 
       <h4 id='auth-message'></h4>
 
@@ -35,7 +35,7 @@
         </fieldset>
       </form>
 
-      <form id='change-password'>
+      <form id='change-password' class='hidden'>
         <fieldset>
           <legend>Change Password</legend>
           <input type="password" name="passwords[old]" placeholder="Old Password">
@@ -44,7 +44,7 @@
         </fieldset>
       </form>
 
-      <form id='sign-out'>
+      <form id='sign-out' class='hidden'>
         <fieldset>
           <legend>Sign Out</legend>
           <button type="submit">Sign Out</button>
@@ -52,10 +52,10 @@
       </form>
 
 
-      <button type="button" name="button">Start Game</button>
+      <!-- <button type="button" name="button">Start Game</button> -->
+      <h4 id='gameBoard-message'></h4>
 
-
-      <div class="container">
+      <div class="container hidden" id='game'>
         <div class="row">
           <div class="col-md-4 box" id="0"></div>
           <div class="col-md-4 box" id="1"></div>
@@ -74,8 +74,6 @@
           <div class="col-md-4 box" id="8"></div>
         </div>
       </div>
-
-      <h4 id='gameBoard-message'></h4>
 
     </body>
 </html>

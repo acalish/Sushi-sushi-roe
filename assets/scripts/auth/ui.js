@@ -2,11 +2,11 @@
 const store = require('../store.js')
 
 const signUpSuccess = function () {
-  $('#auth-message').text('Sign up successful, please sign in to play!')
+  $('#auth-message').text('Sign up successful, please sign in to play')
   $('#sign-up input').val('')
 }
 const signUpFailure = function () {
-  $('#auth-message').text('Sign up failed, please check that your passwords match.')
+  $('#auth-message').text('Sign up failed, please check that your passwords match')
   $('#sign-up input').val('')
 }
 
@@ -14,10 +14,11 @@ const signInSuccess = function (response) {
   console.log('Response is', response)
   $('#auth-message').text('Enjoy your game!')
   $('#sign-in input').val('')
-  // $('#game').removeClass('hidden')
-  // $('#game').show()
-  // $('#sign-in').hide()
-  // $('#sign-up').hide()
+  $('#game').removeClass('hidden')
+  $('#change-password').removeClass('hidden')
+  $('#sign-out').removeClass('hidden')
+  $('#sign-in').hide()
+  $('#sign-up').hide()
   store.user = response.user
 }
 
@@ -40,9 +41,9 @@ const signOutSuccess = function () {
   $('#auth-message').text('Sign out successful')
   $('#sign-out input').val('')
 }
-// not really possible
+
 const signOutFailure = function () {
-  $('#auth-message').text('Not possible')
+  $('#auth-message').text('Sign out failed')
   $('#sign-out input').val('')
 }
 
