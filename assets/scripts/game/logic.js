@@ -41,12 +41,9 @@ const isOver = function () {
     return false
   }
 }
-// turn off click when game is over
-// $('.box').off('click')
-// }
-//
 const endGame = function () {
   if (isOver() === true) {
+    // turn off click handlers
     return true
   } else {
     return false
@@ -71,6 +68,7 @@ const changePlayer = function () {
     currentPlayer = 'X'
   }
 }
+
 // want to refactor this below
 $('.box').on('click', function (event) {
   console.log('you clicked', event.target.id)
@@ -88,15 +86,6 @@ $('.box').on('click', function (event) {
   changePlayer()
   console.log('current player is', currentPlayer)
 })
-// check if move is valid
-// const validMove = function () {
-//
-// }
-// const validMove = function () {
-//   // move logic
-// }
-//
-// changePlayer()
 
 module.exports = {
   gameBoard,
@@ -106,11 +95,3 @@ module.exports = {
   endGame,
   changePlayer
 }
-
-// checkWinner()
-// checkDraw()
-// if (checkWinner() === true || checkDraw() === true) {
-//   endGame()
-// }
-// console.log(checkWinner())
-// console.log(checkDraw())
