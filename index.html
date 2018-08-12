@@ -14,11 +14,19 @@
     <body>
       <h1>Three Makes a Sushi Roe</h1>
 
+      <div class="story">
+        <p>In the Land of Mochi Mountain, the Wasabi Monster has been making everything
+          too spicy! Be the first to get three of your sushi in a row, and he will allow you
+          to enter the soothing Soy Sauce Pool. Think you have what it takes?
+          Sign up below and sign in to play!
+        </p>
+      </div>
+
       <h4 id='auth-message'></h4>
 
-      <form id='sign-up'>
+      <form id='sign-up' class='sign-up'>
         <fieldset>
-          <legend>Sign Up</legend>
+          <legend>Create an account to play</legend>
           <input type="email" name="credentials[email]" placeholder="Email">
           <input type="password" name="credentials[password]" placeholder="Password">
           <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
@@ -28,7 +36,7 @@
 
       <form id='sign-in'>
         <fieldset>
-          <legend>Sign In</legend>
+          <legend>Already have an account? Sign in to play</legend>
           <input type="email" name="credentials[email]" placeholder="Email">
           <input type="password" name="credentials[password]" placeholder="Password">
           <button type="submit">Sign In</button>

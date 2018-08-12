@@ -19,6 +19,7 @@ const signInSuccess = function (response) {
   $('#sign-out').removeClass('hidden')
   $('#sign-in').hide()
   $('#sign-up').hide()
+  $('.story').hide()
   store.user = response.user
 }
 

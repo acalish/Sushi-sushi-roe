@@ -4,6 +4,11 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 $black: #000;
 $darkred: #740001;
 
+h1 {
+  padding: 15px;
+  text-align: center;
+}
+
 .box {
   align-items: center;
   background-color: $darkred;
@@ -12,4 +17,14 @@ $darkred: #740001;
   font-size: 80px;
   height: 200px;
   justify-content: center;
+}
+
+.story {
+  font-size: 15px;
+  padding: 20px;
+  text-align: center;
+}
+
+.sign-up {
+  justify-content: flex-start;
 }
