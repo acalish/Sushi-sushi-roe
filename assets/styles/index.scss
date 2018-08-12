@@ -3,8 +3,17 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 $black: #000;
 $darkred: #740001;
+$brown: #cc7c2c;
+
+body {
+  background-color: $brown;
+  padding: 20px;
+}
 
 h1 {
+  font-family: fantasy;
+  font-size: 40px;
+  font-weight: bold;
   padding: 15px;
   text-align: center;
 }
@@ -19,9 +28,16 @@ h1 {
   justify-content: center;
 }
 
+.container {
+  border: 8px solid $black;
+  height: 60%;
+  width: 50%;
+}
+
 .story {
-  font-size: 15px;
-  padding: 20px;
+  font-family: fantasy;
+  font-size: 20px;
+  padding: 20px 120px;
   text-align: center;
 }
 
