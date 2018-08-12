@@ -41,13 +41,9 @@ const isOver = function () {
     return false
   }
 }
+// turn off clicks when game is over
 const endGame = function () {
-  if (isOver() === true) {
-    // turn off click handlers
-    return true
-  } else {
-    return false
-  }
+  $('.box').off('click')
 }
 // start with first player as X
 let currentPlayer = 'X'
@@ -71,18 +67,21 @@ const changePlayer = function () {
 
 // want to refactor this below
 $('.box').on('click', function (event) {
-  console.log('you clicked', event.target.id)
-  // replaces array index with X
+  // console.log('you clicked', event.target.id)
+  // replaces array index with X or O
   gameBoard.splice(event.target.id, 1, currentPlayer)
   $(event.target).off('click')
   console.log(gameBoard)
-  console.log('current player is', currentPlayer)
+  // console.log('current player is', currentPlayer)
   checkWinner()
   console.log('checkWinner is', checkWinner())
   checkDraw()
   console.log('checkDraw is', checkDraw())
   isOver()
   console.log('isOver is', isOver())
+  if (checkWinner() === true || checkDraw() === true) {
+    endGame()
+  }
   changePlayer()
   console.log('current player is', currentPlayer)
 })
