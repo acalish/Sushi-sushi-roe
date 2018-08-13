@@ -17,6 +17,7 @@ const signInSuccess = function (response) {
   $('#game').removeClass('hidden')
   $('#change-password').removeClass('hidden')
   $('#sign-out').removeClass('hidden')
+  $('#gameBoard-message').removeClass('hidden')
   $('#sign-in').hide()
   $('#sign-up').hide()
   $('.story').hide()

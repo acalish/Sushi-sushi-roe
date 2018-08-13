@@ -47,44 +47,55 @@ const endGame = function () {
 }
 // start with first player as X
 let currentPlayer = 'X'
-// change between X and O
-// const changePlayer = function () {
-//   if (currentPlayer === 'X') {
-//     currentPlayer = 'O'
-//   } else {
-//     currentPlayer = 'X'
-//   }
-// }
+
 const changePlayer = function () {
   if (currentPlayer === 'X') {
     $(event.target).text('X')
     currentPlayer = 'O'
+    $('#gameBoard-message').text("Player O's turn")
   } else {
     $(event.target).text('O')
     currentPlayer = 'X'
+    $('#gameBoard-message').text("Player X's turn")
   }
 }
 
 // want to refactor this below
-$('.box').on('click', function (event) {
-  // console.log('you clicked', event.target.id)
-  // replaces array index with X or O
-  gameBoard.splice(event.target.id, 1, currentPlayer)
-  $(event.target).off('click')
-  console.log(gameBoard)
-  // console.log('current player is', currentPlayer)
-  checkWinner()
-  console.log('checkWinner is', checkWinner())
-  checkDraw()
-  console.log('checkDraw is', checkDraw())
-  isOver()
-  console.log('isOver is', isOver())
-  if (checkWinner() === true || checkDraw() === true) {
-    endGame()
+const updateGameLogic = function (event) {
+  // check if valid spot, alert if not valid
+  if (gameBoard[event.target.id] !== '') {
+    $('#gameBoard-message').text('choose another spot')
+  } else {
+    // else update game board
+    gameBoard.splice(event.target.id, 1, currentPlayer)
+    console.log(gameBoard)
+    // check for a winner
+    if (checkWinner() === true) {
+      $('#gameBoard-message').text(currentPlayer + ' wins!')
+      // still add token
+      $(event.target).text(currentPlayer)
+      console.log(currentPlayer + ' wins')
+      // display a winner visually
+      endGame()
+      // changePlayer()
+    } else {
+      changePlayer()
+      console.log('checkWinner is', checkWinner())
+      checkDraw()
+      // display a tie game visually
+      if (checkDraw() === true) {
+        $('#gameBoard-message').text('Tie game!')
+      }
+      console.log('checkDraw is', checkDraw())
+      isOver()
+      console.log('isOver is', isOver())
+      if (checkWinner() === true || checkDraw() === true) {
+        endGame()
+      }
+      console.log('current player is', currentPlayer)
+    }
   }
-  changePlayer()
-  console.log('current player is', currentPlayer)
-})
+}
 
 module.exports = {
   gameBoard,
@@ -92,5 +103,6 @@ module.exports = {
   checkDraw,
   isOver,
   endGame,
-  changePlayer
+  changePlayer,
+  updateGameLogic
 }
