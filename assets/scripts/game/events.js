@@ -5,8 +5,8 @@ const api = require('./api.js')
 const ui = require('./ui.js')
 
 const onUpdateBoard = function (event) {
-  gameLogic.updateGameLogic(event)
   event.preventDefault()
+  api.update()
     .then(ui.updateBoardSuccess)
     .catch(ui.updateBoardFailure)
 }

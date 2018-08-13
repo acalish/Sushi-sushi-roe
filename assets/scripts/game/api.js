@@ -16,9 +16,32 @@ const create = function (data) {
 }
 
 // update - PATCH update a game (UPDATE)
+const update = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/games/' + data.games.id,
+    method: 'PATCH',
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    },
+    data
+  })
+}
 
 // index - GET all games associated with a user (READ)
+// const index = function (data) {
+//   return $.ajax({
+//     url: config.apiUrl + '/games/' + data.games.id,
+//     method: 'GET',
+//     headers: {
+//       'Authorization': 'Token token=' + store.user.token
+//     },
+//     data
+//   })
+// }
 
 module.exports = {
-  create
+  create,
+  update
+  // ,
+  // index
 }
