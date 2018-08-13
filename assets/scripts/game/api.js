@@ -38,7 +38,7 @@ const update = function (event) {
 // index - GET all games associated with a user (READ)
 const getGames = function (data) {
   return $.ajax({
-    url: config.apiUrl + '/games/' + store.game.id,
+    url: config.apiUrl + '/games',
     method: 'GET',
     headers: {
       'Authorization': 'Token token=' + store.user.token

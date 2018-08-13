@@ -12,7 +12,7 @@ const onStartGame = function (event) {
 }
 
 const onUpdateBoard = function (event) {
-  console.log('this is event', event)
+//  console.log('this is event', event)
   // saves this event to use later
   store.playerClick = event
   event.preventDefault()
