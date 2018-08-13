@@ -16,14 +16,22 @@ const create = function (data) {
 }
 
 // update - PATCH update a game (UPDATE)
-const update = function (data) {
+const update = function (event) {
   return $.ajax({
-    url: config.apiUrl + '/games/' + data.games.id,
+    url: config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',
     headers: {
       'Authorization': 'Token token=' + store.user.token
     },
-    data
+    data: {
+      'game': {
+        'cell': {
+          'index': event.target.id,
+          'value': store.currentPlayer
+        },
+        'over': false
+      }
+    }
   })
 }
 

@@ -1,4 +1,5 @@
 'use strict'
+const store = require('../store')
 // in here I want to define all of my functions
 const gameBoard = ['', '', '', '', '', '', '', '', '']
 // check for win scenarios
@@ -47,32 +48,34 @@ const endGame = function () {
 }
 // start with first player as X
 let currentPlayer = 'X'
+store.currentPlayer = 'X'
 
 const changePlayer = function () {
-  if (currentPlayer === 'X') {
-    $(event.target).text('X')
-    currentPlayer = 'O'
+  if (store.currentPlayer === 'X') {
+    $(store.playerClick.target).text('X')
+    store.currentPlayer = 'O'
     $('#gameBoard-message').text("Player O's turn")
   } else {
-    $(event.target).text('O')
-    currentPlayer = 'X'
+    $(store.playerClick.target).text('O')
+    store.currentPlayer = 'X'
     $('#gameBoard-message').text("Player X's turn")
   }
 }
 
 // want to refactor this below
-const updateGameLogic = function (event) {
+const updateGameLogic = function () {
   // check if valid spot, alert if not valid
-  if (gameBoard[event.target.id] !== '') {
+  console.log('hiiiii ', store.playerClick.target.id)
+  if (gameBoard[store.playerClick.target.id] !== '') {
     $('#gameBoard-message').text('choose another spot')
   } else {
     // else update game board
-    gameBoard.splice(event.target.id, 1, currentPlayer)
+    gameBoard.splice(store.playerClick.target.id, 1, store.currentPlayer)
     // check for a winner
     if (checkWinner() === true) {
-      $('#gameBoard-message').text(currentPlayer + ' wins!')
+      $('#gameBoard-message').text(store.currentPlayer + ' wins!')
       // still add token
-      $(event.target).text(currentPlayer)
+      $(store.playerClick.target).text(store.currentPlayer)
       // display a winner visually
       endGame()
       // changePlayer()
@@ -99,4 +102,6 @@ module.exports = {
   endGame,
   changePlayer,
   updateGameLogic
+  // ,
+  // data
 }
