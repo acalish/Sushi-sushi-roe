@@ -7,14 +7,20 @@ const ui = require('./ui.js')
 const onUpdateBoard = function (event) {
   gameLogic.updateGameLogic(event)
   event.preventDefault()
-  //  const data = gameLogic.id(event.target)
-  // api.signIn(data)
     .then(ui.updateBoardSuccess)
     .catch(ui.updateBoardFailure)
 }
 
+const onStartGame = function (event) {
+  event.preventDefault()
+  api.create()
+    .then(ui.startGameSuccess)
+    .catch(ui.startGameFailure)
+}
+
 const addHandlers = function () {
   $('.box').on('click', onUpdateBoard)
+  $('#start-game').on('click', onStartGame)
 }
 
 module.exports = {

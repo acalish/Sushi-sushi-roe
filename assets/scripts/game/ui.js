@@ -9,7 +9,17 @@ const updateBoardFailure = function (response) {
   console.log('failure')
 }
 
+const startGameSuccess = function (response) {
+  $('#game').removeClass('hidden')
+  console.log(response)
+}
+const startGameFailure = function (response) {
+  console.log(response)
+}
+
 module.exports = {
   updateBoardSuccess,
-  updateBoardFailure
+  updateBoardFailure,
+  startGameSuccess,
+  startGameFailure
 }

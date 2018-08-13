@@ -68,31 +68,25 @@ const updateGameLogic = function (event) {
   } else {
     // else update game board
     gameBoard.splice(event.target.id, 1, currentPlayer)
-    console.log(gameBoard)
     // check for a winner
     if (checkWinner() === true) {
       $('#gameBoard-message').text(currentPlayer + ' wins!')
       // still add token
       $(event.target).text(currentPlayer)
-      console.log(currentPlayer + ' wins')
       // display a winner visually
       endGame()
       // changePlayer()
     } else {
       changePlayer()
-      console.log('checkWinner is', checkWinner())
       checkDraw()
       // display a tie game visually
       if (checkDraw() === true) {
         $('#gameBoard-message').text('Tie game!')
       }
-      console.log('checkDraw is', checkDraw())
       isOver()
-      console.log('isOver is', isOver())
       if (checkWinner() === true || checkDraw() === true) {
         endGame()
       }
-      console.log('current player is', currentPlayer)
     }
   }
 }
