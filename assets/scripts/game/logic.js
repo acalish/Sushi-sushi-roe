@@ -48,6 +48,7 @@ const endGame = function () {
 }
 // start with first player as X
 let currentPlayer = 'X'
+// saves the currentPlayer to call in other files
 store.currentPlayer = 'X'
 
 const changePlayer = function () {
@@ -65,7 +66,6 @@ const changePlayer = function () {
 // want to refactor this below
 const updateGameLogic = function () {
   // check if valid spot, alert if not valid
-  console.log('hiiiii ', store.playerClick.target.id)
   if (gameBoard[store.playerClick.target.id] !== '') {
     $('#gameBoard-message').text('choose another spot')
   } else {
