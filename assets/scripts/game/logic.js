@@ -1,24 +1,25 @@
 'use strict'
 const store = require('../store')
 // in here I want to define all of my functions
-const gameBoard = ['', '', '', '', '', '', '', '', '']
+// const gameBoard = ['', '', '', '', '', '', '', '', '']
+// store.gameBoard = ['', '', '', '', '', '', '', '', '']
 // check for win scenarios
 const checkWinner = function () {
-  if (gameBoard[0] === gameBoard[1] && gameBoard[0] === gameBoard[2] && gameBoard[0] !== '') {
+  if (store.gameBoard.cells[0] === store.gameBoard.cells[1] && store.gameBoard.cells[0] === store.gameBoard.cells[2] && store.gameBoard.cells[0] !== '') {
     return true
-  } else if (gameBoard[3] === gameBoard[4] && gameBoard[3] === gameBoard[5] && gameBoard[3] !== '') {
+  } else if (store.gameBoard.cells[3] === store.gameBoard.cells[4] && store.gameBoard.cells[3] === store.gameBoard.cells[5] && store.gameBoard.cells[3] !== '') {
     return true
-  } else if (gameBoard[6] === gameBoard[7] && gameBoard[6] === gameBoard[8] && gameBoard[6] !== '') {
+  } else if (store.gameBoard.cells[6] === store.gameBoard.cells[7] && store.gameBoard.cells[6] === store.gameBoard.cells[8] && store.gameBoard.cells[6] !== '') {
     return true
-  } else if (gameBoard[0] === gameBoard[3] && gameBoard[0] === gameBoard[6] && gameBoard[0] !== '') {
+  } else if (store.gameBoard.cells[0] === store.gameBoard.cells[3] && store.gameBoard.cells[0] === store.gameBoard.cells[6] && store.gameBoard.cells[0] !== '') {
     return true
-  } else if (gameBoard[1] === gameBoard[4] && gameBoard[1] === gameBoard[7] && gameBoard[1] !== '') {
+  } else if (store.gameBoard.cells[1] === store.gameBoard.cells[4] && store.gameBoard.cells[1] === store.gameBoard.cells[7] && store.gameBoard.cells[1] !== '') {
     return true
-  } else if (gameBoard[2] === gameBoard[5] && gameBoard[2] === gameBoard[8] && gameBoard[2] !== '') {
+  } else if (store.gameBoard.cells[2] === store.gameBoard.cells[5] && store.gameBoard.cells[2] === store.gameBoard.cells[8] && store.gameBoard.cells[2] !== '') {
     return true
-  } else if (gameBoard[0] === gameBoard[4] && gameBoard[0] === gameBoard[8] && gameBoard[0] !== '') {
+  } else if (store.gameBoard.cells[0] === store.gameBoard.cells[4] && store.gameBoard.cells[0] === store.gameBoard.cells[8] && store.gameBoard.cells[0] !== '') {
     return true
-  } else if (gameBoard[2] === gameBoard[4] && gameBoard[2] === gameBoard[6] && gameBoard[2] !== '') {
+  } else if (store.gameBoard.cells[2] === store.gameBoard.cells[4] && store.gameBoard.cells[2] === store.gameBoard.cells[6] && store.gameBoard.cells[2] !== '') {
     return true
   } else {
     return false
@@ -26,9 +27,9 @@ const checkWinner = function () {
 }
 // check for draw scenario
 const checkDraw = function () {
-  if ((gameBoard[0] && gameBoard[1] && gameBoard[2] &&
-    gameBoard[3] && gameBoard[4] && gameBoard[5] &&
-    gameBoard[6] && gameBoard[7] && gameBoard[8] !== '') && checkWinner() === false) {
+  if ((store.gameBoard.cells[0] && store.gameBoard.cells[1] && store.gameBoard.cells[2] &&
+    store.gameBoard.cells[3] && store.gameBoard.cells[4] && store.gameBoard.cells[5] &&
+    store.gameBoard.cells[6] && store.gameBoard.cells[7] && store.gameBoard.cells[8] !== '') && checkWinner() === false) {
     return true
   } else {
     return false
@@ -47,7 +48,7 @@ const endGame = function () {
   $('.box').off('click')
 }
 // start with first player as X
-let currentPlayer = 'X'
+// let currentPlayer = 'X'
 // saves the currentPlayer to call in other files
 store.currentPlayer = 'X'
 
@@ -55,22 +56,25 @@ const changePlayer = function () {
   if (store.currentPlayer === 'X') {
     $(store.playerClick.target).text('X')
     store.currentPlayer = 'O'
-    $('#gameBoard-message').text("Player O's turn")
+    $('#gameBoard-message').text(store.currentPlayer + "'s turn")
   } else {
     $(store.playerClick.target).text('O')
     store.currentPlayer = 'X'
-    $('#gameBoard-message').text("Player X's turn")
+    $('#gameBoard-message').text(store.currentPlayer + "'s turn")
   }
 }
 
 // want to refactor this below
 const updateGameLogic = function () {
   // check if valid spot, alert if not valid
-  if (gameBoard[store.playerClick.target.id] !== '') {
+  console.log('store.gameBoard', store.gameBoard.cells)
+  console.log('store.playerclick', store.playerClick.target.id)
+  console.log('this is the spot', store.gameBoard.cells[store.playerClick.target.id])
+  if (store.gameBoard.cells[store.playerClick.target.id] !== '') {
     $('#gameBoard-message').text('choose another spot')
   } else {
     // else update game board
-    gameBoard.splice(store.playerClick.target.id, 1, store.currentPlayer)
+    store.gameBoard.cells.splice(store.playerClick.target.id, 1, store.currentPlayer)
     // check for a winner
     if (checkWinner() === true) {
       $('#gameBoard-message').text(store.currentPlayer + ' wins!')
@@ -95,13 +99,10 @@ const updateGameLogic = function () {
 }
 
 module.exports = {
-  gameBoard,
   checkWinner,
   checkDraw,
   isOver,
   endGame,
   changePlayer,
   updateGameLogic
-  // ,
-  // data
 }

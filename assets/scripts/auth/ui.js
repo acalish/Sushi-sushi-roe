@@ -11,7 +11,7 @@ const signUpFailure = function () {
 }
 
 const signInSuccess = function (response) {
-  console.log('Response is', response)
+//  console.log('Response is', response)
   $('#auth-message').text('Enjoy your game!')
   $('#sign-in input').val('')
   // $('#game').removeClass('hidden')

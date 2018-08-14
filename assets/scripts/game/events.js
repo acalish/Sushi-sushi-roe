@@ -12,10 +12,10 @@ const onStartGame = function (event) {
 }
 
 const onUpdateBoard = function (event) {
-//  console.log('this is event', event)
   // saves this event to use later
-  store.playerClick = event
   event.preventDefault()
+  store.playerClick = event
+  console.log('store player click', store.playerClick)
   api.update(event)
     .then(ui.updateBoardSuccess)
     .catch(ui.updateBoardFailure)
@@ -28,10 +28,18 @@ const onGetGames = function (event) {
     .catch(ui.getGamesFailure)
 }
 
+const onNewGame = function (event) {
+  event.preventDefault()
+  api.create()
+    .then(ui.newGameSuccess)
+    .catch(ui.newGameFailure)
+}
+
 const addHandlers = function () {
   $('.box').on('click', onUpdateBoard)
   $('#start-game').on('click', onStartGame)
   $('#game-stats').on('click', onGetGames)
+  $('#new-game').on('click', onNewGame)
 }
 
 module.exports = {
