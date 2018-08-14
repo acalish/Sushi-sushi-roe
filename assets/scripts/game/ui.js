@@ -8,9 +8,9 @@ const startGameSuccess = function (response) {
   $('#gameBoard-message').removeClass('hidden')
   $('#game-stats').removeClass('hidden')
   $('#game-stats-message').removeClass('hidden')
-  store.currentPlayer = 'X'
+  store.currentPlayer = '🍣'
   store.gameBoard = response.game
-  console.log('created board', response.game)
+//  console.log('created board', response.game)
   // console.log(response)
 }
 const startGameFailure = function (response) {
@@ -18,11 +18,10 @@ const startGameFailure = function (response) {
 }
 
 const newGameSuccess = function (response) {
-  console.log('give me a new game!')
   store.gameBoard = response.game
   $('.box').empty()
-  $('#gameBoard-message').text("Player X's turn")
-  store.currentPlayer = 'X'
+  $('#gameBoard-message').text("🍣's turn")
+  store.currentPlayer = '🍣'
 }
 
 const updateBoardSuccess = function (response) {
@@ -30,24 +29,20 @@ const updateBoardSuccess = function (response) {
   // store.newArray = response.game.cells
   // console.log('this is the new array', store.newArray)
   gameLogic.updateGameLogic()
-  // console.log('this is response', response)
   $('#new-game').removeClass('hidden')
 }
 
 const updateBoardFailure = function (response) {
-  console.log('failure')
+//  console.log('failure')
 }
 
 const getGamesSuccess = function (response) {
   store.gameStats = response.games.length
-  // console.log('number = ', store.gameStats)
   $('#game-stats-message').text('Games played: ' + store.gameStats)
-  // console.log('getting games succeeded!')
-  // console.log('this is the response ', response)
 }
 
 const getGamesFailure = function (response) {
-  console.log('getting games failed!')
+//  console.log('getting games failed!')
 }
 
 module.exports = {

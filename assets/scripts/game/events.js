@@ -1,5 +1,5 @@
 'use strict'
-const gameLogic = require('./logic.js')
+// const gameLogic = require('./logic.js')
 const store = require('../store')
 const api = require('./api.js')
 const ui = require('./ui.js')
@@ -15,7 +15,7 @@ const onUpdateBoard = function (event) {
   // saves this event to use later
   event.preventDefault()
   store.playerClick = event
-  console.log('store player click', store.playerClick)
+  // console.log('store player click', store.playerClick)
   api.update(event)
     .then(ui.updateBoardSuccess)
     .catch(ui.updateBoardFailure)

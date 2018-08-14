@@ -17,8 +17,6 @@ const create = function (data) {
 
 // update - PATCH update a game (UPDATE)
 const update = function (event) {
-  // console.log('this is event target', event.target.id)
-  console.log('this is store id', store.gameBoard.id)
   return $.ajax({
     url: config.apiUrl + '/games/' + store.gameBoard.id,
     method: 'PATCH',

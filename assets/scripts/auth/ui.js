@@ -14,7 +14,6 @@ const signInSuccess = function (response) {
 //  console.log('Response is', response)
   $('#auth-message').text('Enjoy your game!')
   $('#sign-in input').val('')
-  // $('#game').removeClass('hidden')
   $('#change-password').removeClass('hidden')
   $('#sign-out').removeClass('hidden')
   $('#start-game').removeClass('hidden')

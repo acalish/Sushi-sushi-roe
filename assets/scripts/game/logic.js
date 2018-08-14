@@ -1,8 +1,5 @@
 'use strict'
 const store = require('../store')
-// in here I want to define all of my functions
-// const gameBoard = ['', '', '', '', '', '', '', '', '']
-// store.gameBoard = ['', '', '', '', '', '', '', '', '']
 // check for win scenarios
 const checkWinner = function () {
   if (store.gameBoard.cells[0] === store.gameBoard.cells[1] && store.gameBoard.cells[0] === store.gameBoard.cells[2] && store.gameBoard.cells[0] !== '') {
@@ -47,19 +44,19 @@ const isOver = function () {
 const endGame = function () {
   $('.box').off('click')
 }
-// start with first player as X
-// let currentPlayer = 'X'
+// start with first player as 'X' 🍣
+// player 'O' is 🍙
 // saves the currentPlayer to call in other files
-store.currentPlayer = 'X'
+store.currentPlayer = '🍣'
 
 const changePlayer = function () {
-  if (store.currentPlayer === 'X') {
-    $(store.playerClick.target).text('X')
-    store.currentPlayer = 'O'
+  if (store.currentPlayer === '🍣') {
+    $(store.playerClick.target).text('🍣')
+    store.currentPlayer = '🍙'
     $('#gameBoard-message').text(store.currentPlayer + "'s turn")
   } else {
-    $(store.playerClick.target).text('O')
-    store.currentPlayer = 'X'
+    $(store.playerClick.target).text('🍙')
+    store.currentPlayer = '🍣'
     $('#gameBoard-message').text(store.currentPlayer + "'s turn")
   }
 }
@@ -67,9 +64,6 @@ const changePlayer = function () {
 // want to refactor this below
 const updateGameLogic = function () {
   // check if valid spot, alert if not valid
-  console.log('store.gameBoard', store.gameBoard.cells)
-  console.log('store.playerclick', store.playerClick.target.id)
-  console.log('this is the spot', store.gameBoard.cells[store.playerClick.target.id])
   if (store.gameBoard.cells[store.playerClick.target.id] !== '') {
     $('#gameBoard-message').text('choose another spot')
   } else {
