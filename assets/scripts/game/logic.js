@@ -42,8 +42,10 @@ const isOver = function () {
 }
 // turn off clicks when game is over
 const endGame = function () {
-  $('.box').off('click')
+  store.gameOver = true
+  // $('.box').off('click')
 }
+
 // start with first player as 'X' 🍣
 // player 'O' is 🍙
 // saves the currentPlayer to call in other files
