@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Three Makes a Sushi Roe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <h1>Three Makes a Sushi Roe</h1>
+
+      <div class="story">
+        <p>In the Land of Mochi Mountain, the Wasabi Monster has been making everything
+          too spicy! Be the first to get three of your sushi in a row, and he will allow you
+          to enter the soothing Soy Sauce Pool. Think you have what it takes?
+          Sign up below and sign in to play!
+        </p>
+      </div>
+
+      <h4 id='auth-message'></h4>
+
+      <form id='sign-up' class='sign-up'>
+        <fieldset>
+          <legend>Create an account to play</legend>
+          <input type="email" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+          <button type="submit">Sign Up</button>
+        </fieldset>
+      </form>
+
+      <form id='sign-in' class='sign-in'>
+        <fieldset>
+          <legend>Already have an account? Sign in to play</legend>
+          <input type="email" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <button type="submit">Sign In</button>
+        </fieldset>
+      </form>
+
+      <form id='change-password' class='hidden'>
+        <fieldset>
+          <legend>Change Password</legend>
+          <input type="password" name="passwords[old]" placeholder="Old Password">
+          <input type="password" name="passwords[new]" placeholder="New Password">
+          <button type="submit">Change Password</button>
+        </fieldset>
+      </form>
+
+      <form id='sign-out' class='hidden'>
+        <fieldset>
+          <legend>Sign Out</legend>
+          <button type="submit">Sign Out</button>
+        </fieldset>
+      </form>
+
+
+      <button type="button" id='start-game' class='hidden'>Start Game</button>
+      <button type="button" id='game-stats' class='hidden'>Game Count</button>
+      <button type="button" id='new-game' class='hidden'>New Game</button>
+
+      <h4 id='gameBoard-message' class='hidden'>🍣's turn</h4>
+      <h4 id='game-stats-message' class='hidden'></h4>
+
+      <div class="container hidden" id='game'>
+        <div class="row">
+          <div class="col-md-4 box" id="0"></div>
+          <div class="col-md-4 box" id="1"></div>
+          <div class="col-md-4 box" id="2"></div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 box" id="3"></div>
+          <div class="col-md-4 box" id="4"></div>
+          <div class="col-md-4 box" id="5"></div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 box" id="6"></div>
+          <div class="col-md-4 box" id="7"></div>
+          <div class="col-md-4 box" id="8"></div>
+        </div>
+      </div>
+
+    </body>
+</html>
