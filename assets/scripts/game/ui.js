@@ -18,11 +18,9 @@ const startGameFailure = function (response) {
 }
 
 const newGameSuccess = function (response) {
-  console.log('you clicked new game')
   // need to say that the game is not over
   store.gameOver = false
   store.gameBoard = response.game
-  console.log('gameBoard is now', store.gameBoard)
   $('.box').empty()
   $('#gameBoard-message').text("🍣's turn")
   store.currentPlayer = '🍣'
@@ -36,7 +34,6 @@ const updateBoardSuccess = function (response) {
   $('#new-game').removeClass('hidden')
   if (store.gameOver === false) {
     gameLogic.updateGameLogic()
-    console.log('the gameBoard is', store.gameBoard)
   }
 }
 

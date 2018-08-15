@@ -40,10 +40,9 @@ const isOver = function () {
     return false
   }
 }
-// turn off clicks when game is over
+// save that game is over
 const endGame = function () {
   store.gameOver = true
-  // $('.box').off('click')
 }
 
 // start with first player as 'X' 🍣
